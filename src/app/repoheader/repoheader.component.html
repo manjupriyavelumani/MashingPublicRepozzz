@@ -1,0 +1,16 @@
+<mat-card class="header-card">
+        <mat-card-header class="header-content">
+                <div mat-card-avatar class="header-icon"> 
+                        <mat-icon svgIcon="github_icon" aria-hidden="false" aria-label="github icon">
+                        </mat-icon>
+                </div>
+                <mat-card-title class="header-title" *ngIf="headData">
+                        {{headData}}
+                </mat-card-title>
+                <button class="header-action" *ngIf="changeApiBtn" mat-raised-button (click)="openDialog('0ms', '0ms')">
+                Change API Token
+                </button>
+        </mat-card-header>
+
+        <br>
+</mat-card>

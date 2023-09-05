@@ -1,0 +1,49 @@
+//   grid style
+.repo-details-content {
+  background-color: #F6F8FA;
+  padding: 10px;
+  mat-grid-tile{
+    border: 1px solid #d6d7d8;
+  }
+  .details-icon{
+    margin: 0px 8px;
+    size: 10px;
+  }
+  .aboutRepo {
+    margin-left: 15px;
+  }
+  .dataList {
+    button {
+      width: 100%;
+    }
+  }
+  .details-item{
+    margin-bottom: 5px;
+  }
+  .branchContainer {
+    float: right
+  }
+// contributor styling
+  .contributor-content {
+    left: 30px;
+    .mat-grid-tile-content {
+      flex-wrap: wrap !important;
+    }
+    h4 {
+      display: block;
+      width: 100%;
+    }
+    .header-image {
+      background-size: cover;
+    }
+  }
+  // chart style
+  .chartContainer {
+    width: 500px;
+    height: 500px;
+    float: right;
+    margin-top: 35px;
+  }
+
+
+}

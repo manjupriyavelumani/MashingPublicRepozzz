@@ -1,0 +1,19 @@
+.details-content {
+  margin: 10px 150px;
+  mat-card-title{
+    color: #3f51b5;
+    margin-top: 5px;
+  }
+  .header-image {
+    background-size: cover;
+  }
+
+  mat-tab-group {
+    margin-bottom: 48px;
+  }
+  .mat-mdc-tab-body-content {
+    height: 100%;
+    overflow: unset;
+}
+
+}

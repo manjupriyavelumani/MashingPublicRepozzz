@@ -1,0 +1,18 @@
+<app-repoheader [btnEnable]="fromLogin" [headerData]="headData"></app-repoheader>
+
+<div class="login-container">
+  <div class="form-container">
+    <form [formGroup]="loginForm" (submit)="onLogin()">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Enter PAT:
+        </mat-label>
+        <input (keyup)="onKey()" matInput formControlName="enteredPAT" id="enteredPAT"/>
+      </mat-form-field>
+      <mat-error *ngIf="(loginForm.controls.enteredPAT.touched && loginForm.controls.enteredPAT.invalid) || isError ">
+        <span *ngIf="isError">{{this.errorMsg}}</span>
+        <span *ngIf="loginForm.controls.enteredPAT.touched && loginForm.controls.enteredPAT.invalid">Please Enter Your PAT</span>
+      </mat-error>
+      <button  [ngClass]="isError || (loginForm.controls.enteredPAT.touched && loginForm.controls.enteredPAT.invalid) ? 'logBtn': ''" mat-raised-button color="primary" type="submit">Log In</button>
+    </form>
+  </div>
+</div>

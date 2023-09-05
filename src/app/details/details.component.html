@@ -1,0 +1,18 @@
+<app-repoheader [btnEnable]="fromRepoList" [headerData]="headerName"></app-repoheader>
+<div class="details-content">
+  <mat-card>
+    <mat-card-header class="header-name">
+      <div mat-card-avatar [ngStyle]="{'background-image':'url('+selectedRepo.iconUrl+')'}" class="header-image"></div>
+      <mat-card-title>{{selectedRepo.fullname}}</mat-card-title>
+    </mat-card-header>
+    <br>
+  </mat-card>
+  <mat-tab-group animationDuration="0ms" class="display-name">
+    <mat-tab label="Details">
+      <app-repo-details [repoDetails]="detailsLink"> </app-repo-details>
+    </mat-tab>
+    <mat-tab label="Issues">
+      <app-issues [repoClicked]="issueLink"> </app-issues>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,78 @@
+<mat-grid-list cols="5" rowHeight="100px" class="repo-details-content">
+    <mat-grid-tile [colspan]="4" [rowspan]="1">
+        <h2>About:</h2>
+        <p class="aboutRepo">{{repoDetailsData.description}}</p>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="2">
+        <mat-list role="list" class="dataList">
+            <mat-list-item role="listitem">
+                <button mat-raised-button>
+                    <mat-icon class="details-icon" svgIcon="eye" aria-hidden="false" aria-label="eye icon"></mat-icon>
+                    {{repoDetailsData.watch}} Watches
+                </button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+                <button mat-raised-button>
+                    <mat-icon class="details-icon" svgIcon="fork" aria-hidden="false" aria-label="eye icon"></mat-icon>
+                    {{repoDetailsData.forks}} Fork
+                </button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+                <button mat-raised-button>
+                    <mat-icon class="details-icon" svgIcon="star" aria-hidden="false" aria-label="eye icon"></mat-icon>
+                    {{repoDetailsData.starGazers}} Star
+                </button>
+            </mat-list-item>
+        </mat-list>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+        Default Branch:
+        <mat-icon class="details-icon" svgIcon="branch" aria-hidden="false" aria-label="branch icon"></mat-icon>
+        <span class="details-item"> {{repoDetailsData.defaultBranch}}</span>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-icon class="details-icon" svgIcon="branch_solid" aria-hidden="false"
+            aria-label="branch solid icon"></mat-icon>
+        <span class="details-item"> {{branchCount}} Branches </span>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-icon class="details-icon" svgIcon="tags" aria-hidden="false" aria-label="tags icon"></mat-icon>
+        <span class="details-item">{{tagCount}} Tags</span>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="3" [rowspan]="5">
+        <div class="chartContainer" *ngIf="chartSeries.length">
+            <apx-chart [series]="chartSeries" [chart]="chartDetails" [labels]="languageLabels" [title]="chartTitle"
+                [theme]="chartTheme"></apx-chart>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="2" class="contributor-content">
+        <div *ngIf="contributorsDataSliced" class="mat-grid-tile-content">
+            <h4>Contributers..</h4>
+            <a href="{{data.contributersLink}}" class="ContributersAvatar"
+                [ngStyle]="{'background-image':'url('+data.contributersAvatarUrl+')'}" mat-card-avatar
+                *ngFor="let data of contributorsDataSliced" class="header-image">
+            </a>
+            <mat-icon *ngIf="slice" svgIcon="dots" aria-hidden="false" aria-label="icon" (click)="showAll()"></mat-icon>
+        </div>
+        <div *ngIf="contributorsDataSliced.length == 0" class="mat-grid-tile-content">
+            <p *ngIf="contributorsDataSliced.length == 0">No Contrbutors Available</p>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="3">
+        <h4>Available Branches..</h4>
+        <mat-list role="list" class="dataList" *ngIf="branchName">
+            <mat-list-item role="listitem" *ngFor="let branch of branchName">
+                <button mat-raised-button>
+                    <mat-icon class="details-icon" svgIcon="eye" aria-hidden="false" aria-label="eye icon"></mat-icon>
+                    {{branch}}
+                </button>
+            </mat-list-item>
+            <mat-list role="list" class="dataList" *ngIf="branchName.length == 0">
+                <span>No Branches Available</span>
+            </mat-list>
+        </mat-list>
+    </mat-grid-tile>
+</mat-grid-list>

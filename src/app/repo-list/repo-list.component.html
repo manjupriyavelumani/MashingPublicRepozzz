@@ -1,0 +1,17 @@
+<app-repoheader [btnEnable]="fromRepoList" [headerData]="headData"></app-repoheader>
+
+<div class="list-content">
+  <mat-card class="list-card" *ngFor="let item of repositoryDataSliced, let i = index" (click)="naviToDetails(item)">
+    <mat-card-header class="repo-header" (mouseover)="hoverElement = item.fullname" (mouseleave)="hoverElement = null"
+      [ngClass]="hoverElement === item.fullname ? 'mat-elevation-z10': 'mat-elevation-z2'">
+      <div mat-card-avatar [ngStyle]="{'background-image':'url('+item.iconUrl+')'}" class="repo-header-image"></div>
+      <mat-card-title>{{item.fullname}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>{{item.description}}</mat-card-content>
+    <br>
+  </mat-card>
+  <mat-paginator (page)="handlePageEvent($event)" [length]="this.repositoryData.length" [pageSize]="pageSize"
+    [showFirstLastButtons]="showFirstLastButtons" [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageIndex"
+    aria-label="Select page">
+  </mat-paginator>
+</div>

@@ -1,0 +1,18 @@
+.list-content {
+  margin: 10px 60px;
+
+  .list-card {
+    margin-bottom: 35px;
+
+    .repo-header {
+      margin-bottom: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      color: #3f51b5;
+
+      .repo-header-image {
+        background-size: cover;
+      }
+    }
+  }
+}

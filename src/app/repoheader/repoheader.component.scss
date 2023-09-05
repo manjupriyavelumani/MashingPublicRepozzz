@@ -1,0 +1,45 @@
+// style for header
+.header-card{
+    background-color: #efefef;  
+    .header-content{
+      height: 80px;
+      display: flex;
+      position: relative;
+      span{
+          position: absolute;
+          top: 40%;
+          right: 65%;
+          font-size: 30px;
+      }
+      // Header icon styling
+      mat-icon{
+        width: auto;
+        height: auto;
+      }
+      .header-icon{
+        position: absolute;
+        left: 10px;
+        top: 25px;
+        width: 60px;
+      }
+      // Header title styling
+      .header-title{
+        position: absolute;
+        left: 60px;
+        top: 45px;
+      }
+      // Header button styling
+      .header-action{
+        position: absolute;
+      right: 10px;
+      top: 40px;
+      padding: 10px;
+      }
+      
+    }
+  }
+
+
+
+  
+  
